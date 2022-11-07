@@ -1,12 +1,14 @@
 import React from 'react'
+import { Outlet } from 'react-router-dom'
+import Header from '../Components/Header/Header'
 
 function Layout() {
   return (
     <div>
          <div className="h-fit w-full">
-            {/* <Header></Header>
+            <Header></Header>
             <Outlet></Outlet>
-            <Footer></Footer> */}
+            {/* <Footer></Footer> */}
         </div>
     </div>
   )
