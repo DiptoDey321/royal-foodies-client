@@ -13,3 +13,30 @@
 .Roboto {
   font-family: 'Roboto', sans-serif
 }
+
+.why-us,.customer{
+  position: relative;
+}
+
+.why-us:after{
+  position: absolute;
+  display: block;
+  content: '';
+  width: 40px;
+  height: 2px;
+  background: rgb(163, 163, 163);
+  top: 70%;
+  transform: translateY(-50%);
+  left: 70px;
+}
+.customer:after{
+  position: absolute;
+  display: block;
+  content: '';
+  width: 40px;
+  height: 2px;
+  background: rgb(163, 163, 163);
+  top: 70%;
+  transform: translateY(-50%);
+  left: 150px;
+}

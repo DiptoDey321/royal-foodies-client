@@ -1,5 +1,6 @@
 import React from 'react'
 import { Outlet } from 'react-router-dom'
+import Footer from '../Components/Footer/Footer'
 import Header from '../Components/Header/Header'
 
 function Layout() {
@@ -8,7 +9,7 @@ function Layout() {
          <div className="h-fit w-full">
             <Header></Header>
             <Outlet></Outlet>
-            {/* <Footer></Footer> */}
+            <Footer></Footer>
         </div>
     </div>
   )
