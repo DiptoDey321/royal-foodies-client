@@ -1,4 +1,6 @@
 import React from 'react'
+import { PhotoProvider, PhotoView } from 'react-photo-view';
+import 'react-photo-view/dist/react-photo-view.css';
 
 function Services() {
   return (
@@ -7,8 +9,14 @@ function Services() {
         <p className='text-xl text-center mt-4'>Refreshing traditional & delicious food </p>
         <div className="mt-14 flex justify-around px-[10%]">
             <div className="w-[400px] border rounded-lg">
+                
                 <div className=" p-[10px] flex flex-col items-center justify-center Roboto">
-                    <img className='w-full' src='https://i.ibb.co/zr8S1Q9/breakfst.png' alt="" srcSet="" />
+                    <PhotoProvider>
+                        <PhotoView src="https://i.ibb.co/zr8S1Q9/breakfst.png">
+                            <img src="https://i.ibb.co/zr8S1Q9/breakfst.png" alt="" />
+                        </PhotoView>
+                    </PhotoProvider>
+                    {/* <img className='w-full' src='https://i.ibb.co/zr8S1Q9/breakfst.png' alt="" srcSet="" /> */}
                     <h3 className='text-base tracking-widest mt-4 font-bold'>Lorem ipsum dolor sit amet.</h3>
                     <p className='mt-[10px] text-sm mb-[20px] text-black/60 tracking-[1px] text-left font-light px-3'>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quam delectus, et molestiae sed sint hic veniam ut voluptatem quo dolores beatae nulla porro id labore dolor placeat earum. Hic tempora, explicabo repellendus sunt aliquid aut </p>
                     <button className='p-3  hover:bg-gray-200'>
@@ -20,7 +28,11 @@ function Services() {
             </div>
             <div className="w-[400px] border rounded-lg">
                 <div className=" p-[10px] flex flex-col items-center justify-center Roboto">
-                    <img className='w-full' src='https://i.ibb.co/zr8S1Q9/breakfst.png' alt="" srcSet="" />
+                    <PhotoProvider>
+                        <PhotoView src="https://i.ibb.co/zr8S1Q9/breakfst.png">
+                            <img src="https://i.ibb.co/zr8S1Q9/breakfst.png" alt="" />
+                        </PhotoView>
+                    </PhotoProvider>
                     <h3 className='text-base tracking-widest mt-4 font-bold'>Lorem ipsum dolor sit amet.</h3>
                     <p className='mt-[10px] text-sm mb-[20px] text-black/60 tracking-[1px] text-left font-light px-3'>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quam delectus, et molestiae sed sint hic veniam ut voluptatem quo dolores beatae nulla porro id labore dolor placeat earum. Hic tempora, explicabo repellendus sunt aliquid aut </p>
                     <button className='p-3  hover:bg-gray-200'>
@@ -32,7 +44,11 @@ function Services() {
             </div>
             <div className="w-[400px] border rounded-lg">
                 <div className=" p-[10px] flex flex-col items-center justify-center Roboto">
-                    <img className='w-full' src='https://i.ibb.co/zr8S1Q9/breakfst.png' alt="" srcSet="" />
+                    <PhotoProvider>
+                        <PhotoView src="https://i.ibb.co/zr8S1Q9/breakfst.png">
+                            <img src="https://i.ibb.co/zr8S1Q9/breakfst.png" alt="" />
+                        </PhotoView>
+                    </PhotoProvider>
                     <h3 className='text-base tracking-widest mt-4 font-bold'>Lorem ipsum dolor sit amet.</h3>
                     <p className='mt-[10px] text-sm mb-[20px] text-black/60 tracking-[1px] text-left font-light px-3'>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quam delectus, et molestiae sed sint hic veniam ut voluptatem quo dolores beatae nulla porro id labore dolor placeat earum. Hic tempora, explicabo repellendus sunt aliquid aut </p>
                     <button className='p-3  hover:bg-gray-200'>
@@ -42,7 +58,10 @@ function Services() {
                     </button>
                 </div>
             </div>
-          
+        </div> 
+
+        <div className="flex justify-center mt-10 ">
+            <button className='py-3 px-8 bg-orange-600 text-white rounded-lg'>View All Services</button>
         </div>
     </div>
   )
