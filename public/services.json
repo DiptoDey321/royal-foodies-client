@@ -1,0 +1,44 @@
+[
+    {
+        "serviceName": "Italian Dinning zillan",
+        "rating": "4.5",
+        "price": "120",
+        "desc": "We offer an amazing culinary experience with Italian specialties. Try our Italian food in a friendly atmosphere. For more variety we also serve American cuisine for you to enjoy. Take a seat outside and soak up a pleasant evening with your family in our relaxed outdoor seating area.",
+        "picture": "https: //i.ibb.co/m586mZ7/italian.png"
+    },
+    {
+        "serviceName": "Sea foods",
+        "rating": "4.5",
+        "price": "130",
+        "desc": "Our live kitchen uses most modern contact Plate Freezer in its freezing time to go through a perfect block frozen product where the core temp of the block Seafood is any form of sea life regarded as food by humans, prominently including fish and shellfish. Shellfish include various species of molluscs, crustaceans, and echinoderms",
+        "picture": "https: //i.ibb.co/nRbMF7z/sea-food.png"
+    },
+    {
+        "serviceName": "Dessert Overloaded",
+        "rating": "4.5",
+        "price": "100",
+        "desc": "If dessert is your favourite part of the meal, then this collection is for you! Filled with luscious mousses, ... Icon View Recipe. Super Food Idea .Different types of foods deserts I want yummy... Brownie Cupcakes · Dessert Cupcakes · Yummy Cupcakes · Cupcake Cakes.",
+        "picture": "https://i.ibb.co/GR7Nj2Y/dessert.png"
+    },
+    {
+        "serviceName": "Healthy BreakFast",
+        "rating": "4.5",
+        "price": "150",
+        "desc": "While breakfast options abound, the best choices are high in fiber, protein, healthy fats, vitamins, and minerals. Many nutritious, healthy foods and drinks are also easy to prepare in the morning. These include fruit, whole grain toast, eggs, green tea, coffee, and protein shakes.",
+        "picture": "https://i.ibb.co/5Tt7QrT/breakfst.png"
+    },
+    {
+        "serviceName": "Hydrabadi Briyani",
+        "rating": "4.5",
+        "price": "120",
+        "desc": "Hyderabadi biryani, also known as Hyderabadi dum biryani, is a style of biryani from Hyderabad, India made with basmati rice and meat. Originating in the kitchens of the Nizam of Hyderabad, it combines elements of Hyderabadi and Mughlai cuisines",
+        "picture": "https://i.ibb.co/WKxHSFy/briyani.png"
+    },
+    {
+        "serviceName": "Green Salads",
+        "rating": "4.5",
+        "price": "120",
+        "desc": "These tasty and easy green salad recipes are so versatile! They pair with just about any main dish, from pasta to pizza to salmon to chili. 2 small heads of soft lettuce, butter lettuce or similar ; Lemon Vinaigrette, half recipe ; 1 Persian cucumber, thinly sliced ; ¼ cup shaved Parmesan",
+        "picture": "https: //i.ibb.co/CQkXxDF/green-vegetable.png"
+    }
+]
