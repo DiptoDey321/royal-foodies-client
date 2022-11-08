@@ -27,12 +27,12 @@ const handleLogout = () =>{
                             {
                                 user?.uid || user?.photoURL ?
                                 <div className="flex items-center gap-x-3">
-                                <img className='w-14 h-14 rounded-full' src={user?.photoURL} alt="" srcset="" title={user?.displayName} />
+                                <img className='w-14 h-14 rounded-full' src={user?.photoURL} alt="" srcSet="" title={user?.displayName} />
                                 <button onClick={handleLogout} className=''>Sign-out</button>
                                 </div>
                             :
                                 <div className="flex items-center gap-x-5">
-                                     <li><Link to='/login'>Login</Link></li>
+                                     <button><Link to='/login'>Login</Link></button>
                                 </div>
                             }
                         </li>
