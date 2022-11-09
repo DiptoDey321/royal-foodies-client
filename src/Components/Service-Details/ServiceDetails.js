@@ -31,7 +31,8 @@ function ServiceDetails() {
       const userEmail = user.email;
       const serviceId = id;
       const userPhoto = user.photoURL
-      const commentContent = {serviceId,comment,userEmail,userPhoto}
+      const serviceName = service.serviceName
+      const commentContent = {serviceId,comment,userEmail,userPhoto,serviceName}
 
       fetch("http://localhost:5000/comments",{
       method: "post",
