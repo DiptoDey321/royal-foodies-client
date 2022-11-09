@@ -1,7 +1,7 @@
 import React from 'react'
 import HeroSection from './Hero-Section/HeroSection'
 import OurFeature from './Our-Feature/OurFeature'
-import Services from './Services/Services'
+import Services from './Services/HomeServices'
 import Testimonial from './Testimonial/Testimonial'
 
 function Home() {

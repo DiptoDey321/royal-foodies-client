@@ -20,22 +20,25 @@ const handleLogout = () =>{
                     <Link to='/'><img className='w-[200px]' src="https://i.ibb.co/Nn12Kqt/r-foodies-logo.png" alt="" /></Link>
                 </div>
                 <div className="">
-                    <ul className='text-white flex items-center gap-x-5 text-xl Lato '>
-                        <li>Add-Service</li>
+                    <ul className='text-white flex items-center gap-x-8 text-xl Lato '>
+                        <li><Link to='services'><button>Service</button></Link></li>
                         <li>blog</li>
                         <li className="">
                             {
                                 user?.uid || user?.photoURL ?
-                                <div className="flex items-center gap-x-3">
-                                <img className='w-14 h-14 rounded-full' src={user?.photoURL} alt="" srcSet="" title={user?.displayName} />
-                                <button onClick={handleLogout} className=''>Sign-out</button>
-                                </div>
+                                <ul className="flex items-center gap-x-8">
+                                    <li>My reviews</li>
+                                    <li>Add-service </li>
+                                    <li> <button onClick={handleLogout} className=''>logout</button></li>
+                                </ul>
                             :
                                 <div className="flex items-center gap-x-5">
                                      <button><Link to='/login'>Login</Link></button>
                                 </div>
                             }
                         </li>
+                       
+                       
                        
                     </ul>
                 </div>
