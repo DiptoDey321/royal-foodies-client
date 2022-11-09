@@ -27,8 +27,8 @@ const handleLogout = () =>{
                             {
                                 user?.uid || user?.photoURL ?
                                 <ul className="flex items-center gap-x-8">
-                                    <li>My reviews</li>
-                                    <li>Add-service </li>
+                                    <Link to='/my-review'><li className='cursor-pointer'>My reviews</li></Link>
+                                    <Link to='/add-service'><li className='cursor-pointer'>Add-service </li></Link>
                                     <li> <button onClick={handleLogout} className=''>logout</button></li>
                                 </ul>
                             :

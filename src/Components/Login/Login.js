@@ -11,6 +11,7 @@ function Login() {
     const location = useLocation()
 
     const from = location.state?.from?.pathname || '/'
+    console.log(from);
 
     const HandleLoginForm = (event) =>{
         event.preventDefault();

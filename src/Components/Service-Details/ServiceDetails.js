@@ -1,25 +1,60 @@
-import React, { useContext, useEffect, useState } from 'react'
-import { useParams } from 'react-router-dom'
+import React, { useContext, useEffect, useState } from 'react';
+import { Link, useParams } from 'react-router-dom';
 import { AuthContext } from '../../Authentication/Authentication';
 
 function ServiceDetails() {
   const {user} = useContext(AuthContext);
-  console.log(user);
-
+    // console.log(user);
     const {id}= useParams()
-    // console.log(id);
     const [service,setService] = useState([]);
+    const [comments, setComments] = useState([])
     
     useEffect(()=>{
-        // const url = 
         fetch(`http://localhost:5000/service-details/${id}`)
         .then(res => res.json())
         .then(data => setService(data))
-    },[]) 
+    },[])
+    
+    useEffect(()=>{
+      fetch("http://localhost:5000/comments")
+      .then(res => res.json())
+      .then ( data => {
+        const thisComment = data.filter(comment => comment.serviceId == id)
+        setComments(thisComment);
+      })
+    },[])
+    console.log(comments);
 
-    // console.log(service);
+    const handleAddComment = (event) =>{
+      event.preventDefault()
+      const comment = event.target.comment.value;
+      const userEmail = user.email;
+      const serviceId = id;
+      const userPhoto = user.photoURL
+      const commentContent = {serviceId,comment,userEmail,userPhoto}
+
+      fetch("http://localhost:5000/comments",{
+      method: "post",
+      headers: {
+        'content-type' : "application/json"
+      },
+      body : JSON.stringify(commentContent)
+      })
+      .then(res => res.json())
+      .then(data => {
+        console.log(data);
+        const newComments = [...comments, data];
+        setComments(newComments)
+      })
+      .catch(err => console.log(err))
+      event.target.reset();
+    }
+
+    // console.log(comments);
+
   return (
     <div className='mx-[10%] mt-10'>
+      
       <h2 className='text-center text-[#270000] text-[50px] font-bold Yeseva'>About - {service.serviceName}</h2>
       
       <div className="flex mt-10 justify-between items-center">
@@ -29,7 +64,7 @@ function ServiceDetails() {
           <p className='text-xl font-semibold text-[#270000] capitalize mt-3'>Price : $<span className='text-3xl text-green-700'>{service.price}</span></p>
         </div>
         <div className="w-[40%]">
-          <img className='rounded-[10px]' src="https://i.ibb.co/r3qm4qX/demo.jpg" alt="" />
+          <img className='w-full rounded-[10px]' src={service.picture} alt="" />
         </div>
       </div>
 
@@ -40,13 +75,24 @@ function ServiceDetails() {
         <div className="mt-10 w-[900px]">
 
           {/* review given part  */}
-          <div className="">
+
+          {
+            user?.uid? 
+            <form onSubmit={handleAddComment}>
             <label>
               <span className='text-xl font-medium'>Give us your review</span>
-              <textarea className='w-[90%] border mt-5 p-4' placeholder='Review .........' type="text" />
+              <textarea className='w-[90%] border mt-5 p-4' name='comment' placeholder='Review .........' type="text" />
             </label> <br />
             <button type='submit' className='text-white bg-[#270000] px-8 py-1 text-base mt-3 rounded-md'>submit</button>
+          </form> 
+          :
+          <div className="login">
+              <h2 className='mb-2'>Please Login to give us your review</h2>
+              <Link to='/login'><button className='text-white px-3 py-1 bg-[#270000] rounded-sm'>Login Here</button></Link>
           </div>
+          }
+
+         
 
 
           {/* ================ we need to send this two====================== */}
@@ -54,18 +100,15 @@ function ServiceDetails() {
           username : {user.displayName} */}
 
           {/* watch review parts  */}
-          <div className="review flex  gap-5 items-start mt-10">
-              <img className='w-10 h-10 rounded-full shrink-0' src="https://www.bdstall.com/asset/user-image/21771.jpg" alt="" />
-              <div className="">
-                <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Aliquam eligendi cupiditate ullam quas, aspernatur et dolorum quae, distinctio sapiente consequatur provident! Id, aliquam facere deleniti autem qui atque blanditiis.</p>
-
-                <p className='flex gap-x-5 mt-2'>
-                  <span className='capitalize'>Alif</span>
-                  <span>25 March 2021</span>
-                  <span>11.34 PM</span>
-                </p>
-              </div>
+          {
+            comments.map(comment =>
+              <div key={comment._id} className="review flex gap-5 items-start mt-10">
+              <img className='w-10 h-10 rounded-full shrink-0' src={comment.userPhoto} alt="" />
+              <p>{comment.comment}</p>
+             
           </div>
+              )
+          }
         </div>
       </div>
     </div>
