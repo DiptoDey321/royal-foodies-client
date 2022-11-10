@@ -14,14 +14,14 @@ function Services() {
     <div>
         <h3 className='text-center text-4xl Yeseva text-[#270000]'>Our Services</h3>
         <p className='text-xl text-center mt-4'>Refreshing traditional & delicious food </p>
-        <div className="mt-14 grid grid-cols-3 justify-around px-[10%] gap-x-[2%]">
+        <div className="mt-14 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 justify-center px-[15%] gap-x-[2%] gap-y-[2%]">
            {
                 homeServices.map(services =>
                     <div key={services._id} className="border rounded-lg">
                         <div className=" p-[10px] flex flex-col items-center justify-center Roboto">
                             <div className="relative w-full">
                                 <PhotoProvider>
-                                    <PhotoView src="https://i.ibb.co/zr8S1Q9/breakfst.png">
+                                    <PhotoView className='w-full' src={services.picture}>
                                         <img className='w-full' src={services.picture} alt="" />
                                     </PhotoView>
                                 </PhotoProvider>
@@ -42,7 +42,7 @@ function Services() {
            }
         </div> 
 
-        <div className="flex justify-center mt-10 ">
+        <div className="flex justify-center mt-16 sm:mt-10">
             <Link to='/services'><button className='py-3 px-8 bg-orange-600 text-white rounded-lg'>View All Services</button></Link>
         </div>
     </div>

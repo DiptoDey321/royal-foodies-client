@@ -2,8 +2,10 @@ import { GoogleAuthProvider } from 'firebase/auth'
 import React, { useContext, useState } from 'react'
 import { Link, useLocation, useNavigate } from 'react-router-dom'
 import { AuthContext } from '../../Authentication/Authentication'
+import useTitle from '../../Hooks/useHooks';
 
 function Login() {
+    useTitle('Login')
     const {prodiverLogin} = useContext(AuthContext)
     const [error, setError] = useState('')
     const {signIn} = useContext(AuthContext)
@@ -24,6 +26,23 @@ function Login() {
             const user = result.user
             console.log(user);
             form.reset()
+
+            const userData = {
+                email : user.email
+            }
+            // get jwt token 
+            fetch('http://localhost:5000/jwt',{
+                method: 'POST',
+                headers:{
+                    'content-type' : 'application/json'
+                },
+                body : JSON.stringify(userData)
+            })
+            .then(res => res.json())
+            .then(data => {
+                console.log(data)
+                localStorage.setItem('royal-foodies',data.token)
+            })
             navigate(from, {replace : true})
             setError('')
 

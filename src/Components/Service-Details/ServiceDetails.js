@@ -1,8 +1,10 @@
 import React, { useContext, useEffect, useState } from 'react';
 import { Link, useParams } from 'react-router-dom';
 import { AuthContext } from '../../Authentication/Authentication';
+import useTitle from '../../Hooks/useHooks';
 
 function ServiceDetails() {
+  useTitle('Service Details')
   const {user} = useContext(AuthContext);
     // console.log(user);
     const {id}= useParams()
@@ -13,16 +15,16 @@ function ServiceDetails() {
         fetch(`http://localhost:5000/service-details/${id}`)
         .then(res => res.json())
         .then(data => setService(data))
-    },[])
+    },[id])
     
     useEffect(()=>{
-      fetch("http://localhost:5000/comments")
+      fetch("http://localhost:5000/allcomments")
       .then(res => res.json())
       .then ( data => {
-        const thisComment = data.filter(comment => comment.serviceId == id)
+        const thisComment = data.filter(comment => comment.serviceId === id)
         setComments(thisComment);
       })
-    },[])
+    },[id])
     console.log(comments);
 
     const handleAddComment = (event) =>{
@@ -44,7 +46,7 @@ function ServiceDetails() {
       .then(res => res.json())
       .then(data => {
         console.log(data);
-        const newComments = [...comments, data];
+        const newComments = [ data ,...comments,];
         setComments(newComments)
       })
       .catch(err => console.log(err))
@@ -58,13 +60,13 @@ function ServiceDetails() {
       
       <h2 className='text-center text-[#270000] text-[50px] font-bold Yeseva'>About - {service.serviceName}</h2>
       
-      <div className="flex mt-10 justify-between items-center">
-        <div className="w-[50%]">
+      <div className="flex flex-col-reverse md:flex-row mt-10 justify-between items-center">
+        <div className="w-full md:w-[50%] mt-5 md:mt-0">
           <p className='text-3xl font-semibold text-[#270000] capitalize'>{service.serviceName}</p>
-          <p className='mt-4  Roboto text-justify text-xl'>Short info about <span className='text-gray-600 text-[16px]'> :  <br /> {service.desc}</span></p>
+          <p className='mt-4  Roboto text-justify text-xl'>Short info about <span className='text-gray-600 text-[14px] md:text-[12px] lg:text-[16px]'> :  <br /> {service.desc}</span></p>
           <p className='text-xl font-semibold text-[#270000] capitalize mt-3'>Price : $<span className='text-3xl text-green-700'>{service.price}</span></p>
         </div>
-        <div className="w-[40%]">
+        <div className="w-full md:w-[40%] ">
           <img className='w-full rounded-[10px]' src={service.picture} alt="" />
         </div>
       </div>
@@ -73,7 +75,7 @@ function ServiceDetails() {
       <div className="reviews mt-28 mb-10">
         <h2 className='text-[25px] font-medium Roboto text-[#270000]'>Review over {service.serviceName}</h2>
 
-        <div className="mt-10 w-[900px]">
+        <div className="mt-10 w-full md:w-[750px] lg:w-[900px]">
 
           {/* review given part  */}
 

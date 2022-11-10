@@ -2,8 +2,10 @@ import { GoogleAuthProvider } from 'firebase/auth'
 import React, { useContext, useState } from 'react'
 import { Link } from 'react-router-dom'
 import { AuthContext } from '../../Authentication/Authentication'
+import useTitle from '../../Hooks/useHooks';
 
 function Register() {
+    useTitle('Register')
     const [error, setError] = useState('')
     const [accept, setAccept] = useState(false)
     const {createUser,prodiverLogin,updateUserProfile} = useContext(AuthContext)
