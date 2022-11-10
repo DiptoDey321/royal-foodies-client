@@ -43,7 +43,7 @@ function App() {
         },
         {
           path:'/edit-review/:id',
-          loader : ({params})=> fetch(`http://localhost:5000/comments/${params.id}`),
+          loader : ({params})=> fetch(`https://royal-foodies-server.vercel.app/comments/${params.id}`),
           element : <PrivateRoute><UpdateReview></UpdateReview></PrivateRoute>
         },
         {

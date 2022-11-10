@@ -1,7 +1,7 @@
-import { GoogleAuthProvider } from 'firebase/auth'
-import React, { useContext, useState } from 'react'
-import { Link, useLocation, useNavigate } from 'react-router-dom'
-import { AuthContext } from '../../Authentication/Authentication'
+import { GoogleAuthProvider } from 'firebase/auth';
+import React, { useContext, useState } from 'react';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
+import { AuthContext } from '../../Authentication/Authentication';
 import useTitle from '../../Hooks/useHooks';
 
 function Login() {
@@ -31,7 +31,7 @@ function Login() {
                 email : user.email
             }
             // get jwt token 
-            fetch('http://localhost:5000/jwt',{
+            fetch('https://royal-foodies-server.vercel.app/jwt',{
                 method: 'POST',
                 headers:{
                     'content-type' : 'application/json'

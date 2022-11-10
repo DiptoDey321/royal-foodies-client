@@ -1,8 +1,8 @@
-import React, { useState } from 'react'
-import { useLoaderData, useNavigate } from 'react-router-dom'
-import useTitle from '../../Hooks/useHooks';
+import React, { useState } from 'react';
+import { useLoaderData, useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import useTitle from '../../Hooks/useHooks';
 
 function UpdateReview() {
     useTitle('Update review')
@@ -26,7 +26,7 @@ function UpdateReview() {
         console.log(comment);
         console.log(review);
 
-        fetch(`http://localhost:5000/comments/${review._id}`,{
+        fetch(`https://royal-foodies-server.vercel.app/comments/${review._id}`,{
             method: 'PUT',
             headers: {
                 'content-Type' : 'application/json'

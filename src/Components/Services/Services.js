@@ -1,6 +1,6 @@
-import React, { useEffect, useState } from 'react'
-import { PhotoProvider, PhotoView } from 'react-photo-view'
-import { Link } from 'react-router-dom'
+import React, { useEffect, useState } from 'react';
+import { PhotoProvider, PhotoView } from 'react-photo-view';
+import { Link } from 'react-router-dom';
 import useTitle from '../../Hooks/useHooks';
 
 function Services() {
@@ -9,7 +9,7 @@ function Services() {
     const [services, setServices] = useState([])
     // const services = useLoaderData()
     useEffect(()=>{
-        fetch('http://localhost:5000/allServices')
+        fetch('https://royal-foodies-server.vercel.app/allServices')
         .then(res => res.json())
         .then(data => {
             setServices(data)

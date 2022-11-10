@@ -1,6 +1,6 @@
-import React, { useContext, useState } from 'react'
-import { Link } from 'react-router-dom'
-import { AuthContext } from '../../Authentication/Authentication'
+import React, { useContext, useState } from 'react';
+import { Link } from 'react-router-dom';
+import { AuthContext } from '../../Authentication/Authentication';
 
 
 function Header() {
@@ -30,7 +30,7 @@ const handleLogout = () =>{
                         </svg>
                     </button>
                     {/* className='text-white flex items-center gap-x-8 text-xl Lato ' */}
-                    <ul className={`${showmenu ? 'mt-[78px] ':'-translate-y-full md:translate-y-0 mt-0'} flex flex-col sm:flex-row gap-x-4 md:gap-x-10 items-center absolute sm:static text-white sm:bg-transparent w-full left-0 top-0 sm:mt-0 text-[16px] md:text-[18px] bg-[#270000] pb-5`}>
+                    <ul className={`${showmenu ? 'mt-[78px] ':'-translate-y-full md:translate-y-0 mt-0'} flex flex-col sm:flex-row gap-x-4 md:gap-x-10 items-center absolute sm:static text-white sm:bg-transparent w-full left-0 top-0 sm:mt-0 text-[16px] md:text-[18px] bg-[#270000] `}>
                         <li><Link to='services'><button>Services</button></Link></li>
                         <li><Link to='/blog'>Blog</Link></li>
                         <li className="flex flex-col sm:flex-row">

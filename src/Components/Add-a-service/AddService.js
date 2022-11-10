@@ -1,4 +1,4 @@
-import React from 'react'
+import React from 'react';
 import useTitle from '../../Hooks/useHooks';
 
 function AddService() {
@@ -14,7 +14,7 @@ function AddService() {
       const commentContent = {serviceName,rating,price,desc,picture}
       
     console.log(commentContent);
-    fetch('http://localhost:5000/add-services',{
+    fetch('https://royal-foodies-server.vercel.app/add-services',{
         method: 'POST',
         headers: {
             'content-Type' : 'application/json'

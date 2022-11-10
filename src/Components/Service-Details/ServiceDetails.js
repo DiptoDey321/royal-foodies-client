@@ -12,13 +12,13 @@ function ServiceDetails() {
     const [comments, setComments] = useState([])
     
     useEffect(()=>{
-        fetch(`http://localhost:5000/service-details/${id}`)
+        fetch(`https://royal-foodies-server.vercel.app/service-details/${id}`)
         .then(res => res.json())
         .then(data => setService(data))
     },[id])
     
     useEffect(()=>{
-      fetch("http://localhost:5000/allcomments")
+      fetch("https://royal-foodies-server.vercel.app/allcomments")
       .then(res => res.json())
       .then ( data => {
         const thisComment = data.filter(comment => comment.serviceId === id)
@@ -36,7 +36,7 @@ function ServiceDetails() {
       const serviceName = service.serviceName
       const commentContent = {serviceId,comment,userEmail,userPhoto,serviceName}
 
-      fetch("http://localhost:5000/comments",{
+      fetch("https://royal-foodies-server.vercel.app/comments",{
       method: "post",
       headers: {
         'content-type' : "application/json"

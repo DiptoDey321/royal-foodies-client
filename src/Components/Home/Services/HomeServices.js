@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom';
 function Services() {
     const [homeServices,setHomeServices] = useState([])
     useEffect(()=>{
-        fetch('http://localhost:5000/servicesForHome')
+        fetch('https://royal-foodies-server.vercel.app/servicesForHome')
         .then(res => res.json())
         .then(data => setHomeServices(data))
     },[])

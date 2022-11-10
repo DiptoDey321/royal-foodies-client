@@ -1,9 +1,9 @@
 import React, { useContext, useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-import { AuthContext } from '../../Authentication/Authentication';
-import useTitle from '../../Hooks/useHooks';
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import { AuthContext } from '../../Authentication/Authentication';
+import useTitle from '../../Hooks/useHooks';
 
 function MyReview() {
     useTitle('My Reviews')
@@ -11,7 +11,7 @@ function MyReview() {
     const {user} = useContext(AuthContext);
     // console.log(user.email);
     useEffect(()=>{
-        fetch("http://localhost:5000/comments",{
+        fetch("https://royal-foodies-server.vercel.app/comments",{
             headers:{
                 authorization : `Bearer ${localStorage.getItem('royal-foodies')}`
             }
@@ -27,7 +27,7 @@ function MyReview() {
     const deleteComment = (myReview) =>{
         const agree = window.confirm(`are you sure to delete ${myReview.name}`);
         if(agree){
-            fetch(`http://localhost:5000/comments/${myReview._id}`,{
+            fetch(`https://royal-foodies-server.vercel.app/comments/${myReview._id}`,{
                 method: "DELETE",
             })
             .then(res => res.json())
